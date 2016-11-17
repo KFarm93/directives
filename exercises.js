@@ -26,3 +26,16 @@ app.directive('btButton', function() {
     template: '<button class="btn btn-{{type}}">Click me</button>'
   };
 });
+app.directive('formGroup', function() {
+  return {
+    scope: {
+      'difference': '@',
+    },
+    template: '<form><div class="form-group"><label>{{difference}}</label><input type="text" class="form-control" placeholder={{difference}}></div></form>'
+  };
+});
+app.directive('submitButton', function() {
+  return {
+  template: '<button type="submit" class="btn btn-default">Submit</button>'  
+  };
+});
