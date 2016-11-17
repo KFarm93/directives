@@ -36,6 +36,24 @@ app.directive('formGroup', function() {
 });
 app.directive('submitButton', function() {
   return {
-  template: '<button type="submit" class="btn btn-default">Submit</button>'  
+  template: '<button type="submit" class="btn btn-default">Submit</button>'
+  };
+});
+app.directive('toggleButton', function() {
+  return {
+    scope: {
+      'text': '@'
+    },
+    controller: function($scope) {
+      $scope.click = function() {
+      if ($scope.text === "Turn on") {
+        $scope.text = "Turn off";
+      }
+      else if ($scope.text === "Turn off") {
+        $scope.text = "Turn on";
+      }
+    };
+    },
+    template: '<button type="submit" ng-click="click()" class="btn btn-default">{{text}}</button>'
   };
 });
